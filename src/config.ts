@@ -3,31 +3,31 @@ import type { NavItems } from "./types";
 export const NAV_ITEMS: NavItems = {
 	home: {
 		path: "/",
-		title: "home",
+		title: "主页",
 	},
 	blog: {
 		path: "/blog",
-		title: "blog",
+		title: "博客",
 	},
 	tags: {
 		path: "/tags",
-		title: "tags",
+		title: "标签",
 	},
 	media: {
 		path: "/media",
-		title: "media",
+		title: "媒体",
 	},
 	about: {
 		path: "/about",
-		title: "about",
+		title: "关于",
 	},
 };
 
 export const SITE = {
 	// Your site's detail?
-	name: "Ink",
-	title: "Astro - Ink",
-	description: "Crisp, minimal, personal blog theme for Astro",
+	name: "墨水",
+	title: "墨水",
+	description: "是否曾经有那么一句话，走进过你的心",
 	url: "https://astro-ink.vercel.app",
 	githubUrl: "https://github.com/one-aalam/astro-ink",
 	listDrafts: true,
@@ -44,7 +44,7 @@ export const SITE = {
 	authorImage: "", // Example: https://pbs.twimg.com/profile_images/1272979356529221632/sxvncugt_400x400.jpg, https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png
 	// Author: Bio
 	authorBio:
-		"Crisp, minimal, personal blog theme for Astro. Crisp, minimal, personal blog theme for Astro. Crisp, minimal, personal blog theme for Astro",
+		"每句话的产生，都是由经验积累起来的，至少是在一个人那里走过心的",
 };
 
 // Ink - Theme configuration
