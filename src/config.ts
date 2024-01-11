@@ -28,8 +28,8 @@ export const SITE = {
 	name: "墨水",
 	title: "墨水",
 	description: "是否曾经有那么一句话，走进过你的心",
-	url: "https://astro-ink.vercel.app",
-	githubUrl: "https://github.com/one-aalam/astro-ink",
+	url: "https://ink-word.vercel.app/",
+	githubUrl: "https://github.com/shijianzhong/ink",
 	listDrafts: true,
 	image:
 		"https://raw.githubusercontent.com/one-aalam/astro-ink/main/public/astro-banner.png",

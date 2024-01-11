@@ -52,7 +52,7 @@
 <div class="search">
     <div class="search__ctrl">
         <label for="search"><SearchIcon found={searchResults.length > 0} /></label>
-        <input type="text" name="search" bind:this={searchInput} placeholder="What are you looking for?" bind:value={searchQuery} />
+        <input type="text" name="search" bind:this={searchInput} placeholder="想找点什么?" bind:value={searchQuery} />
     </div>
     <div class="search__results">
         {#if searchResults.length}
@@ -64,12 +64,12 @@
                 {#if searchQuery.length}
                     No matching items found!
                 {:else}
-                    Search something and let me find it for you! :-)
+                    让我帮你找到她! :-)
                 {/if}
             </div>
         {/if}
     </div>
-    <div class="note"><small>click anywhere outside to close</small></div>
+    <div class="note"><small>点击空白区域关闭</small></div>
 </div>
 <style>
     .search {

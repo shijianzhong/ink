@@ -2,8 +2,8 @@
 const { page } = Astro.props
 ---
 <div class="page__actions">
-    {page.url.prev && <a class="action__go-to-x" href={page.url.prev} title="Go to Previous">&larr; Prev</a>}
-    {page.url.next && <a class="action__go-to-x" href={page.url.next} title="Go to Next">Next &rarr;</a>}
+    {page.url.prev && <a class="action__go-to-x" href={page.url.prev} title="Go to Previous">&larr; 上一页</a>}
+    {page.url.next && <a class="action__go-to-x" href={page.url.next} title="Go to Next">下一页 &rarr;</a>}
 </div>
 <style>
     .page__actions {
