@@ -12,6 +12,9 @@ const title = 'Home'
 const description = '每句话的产生，都是由经验积累起来的，至少是在一个人那里走过心的123'
 
 const posts = await getCollection('blog')
+const sortedPosts = posts.sort(
+    (a, b) => new Date(b.data.date) - new Date(a.data.date),
+  );
 ---
 <DefaultPageLayout content={{ title, description }} showPageHeader={false}>
     <div class="hero ">
@@ -27,7 +30,7 @@ const posts = await getCollection('blog')
         </div>
     </div>
     <hr/>
-    <PostPreviewList posts={posts.slice(0, 3)} heading="最新"/>
+    <PostPreviewList posts={sortedPosts.slice(0, 3)} heading="最新"/>
     <div class="page__actions">
         <a class="action__go-to-blog ink-h" href="/blog" title="All Posts">全部 &rarr;</a>
     </div>
