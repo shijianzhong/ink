@@ -1,0 +1,69 @@
+---
+import { getEntry } from "astro:content";
+import Gallery from "../../components/Gallery.astro";
+import ExternalScripts from "../../components/ExternalScripts.astro";
+import "../../styles/main.css";
+let og = "og-image.jpg";
+let title = "欣赏美图，也是养生";
+let description = "欣赏美图，也是养生，每天一张，分享给更多朋友。";
+const _data = await getEntry("gallery", "pics");
+const images = _data.body;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="googlebot"
+      content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"
+    />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="shortcut icon" type="image/png" href="./favicon.svg" />
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(og, Astro.url)} />
+    <meta name="twitter:url" content={Astro.url} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(og, Astro.url)} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8317527679530231"
+      crossorigin="anonymous"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2HYXK51D0M"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-2HYXK51D0M");
+    </script>
+  </head>
+  <body class="is-preload">
+    <header id="header">
+      <h1>{title}</h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="/" class="icon solid fa-info-circle">首页</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <Gallery images={images} title={title} description={description} />
+    <ExternalScripts />
+  </body>
+</html>

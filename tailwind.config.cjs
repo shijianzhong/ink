@@ -22,6 +22,12 @@ module.exports = {
                     ...colors
                 }
             },
+            opacity: {
+                '10': '0.3',
+            },
+            zIndex: {
+                '-1': '-1',
+            },
             typography: (theme) => ({
                 dark: {
                     css: {

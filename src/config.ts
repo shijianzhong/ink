@@ -17,6 +17,10 @@ export const NAV_ITEMS: NavItems = {
 		path: "/media",
 		title: "媒体",
 	},
+	phtots: {
+		path: "/gallery",
+		title: "图册",
+	},
 	about: {
 		path: "/about",
 		title: "关于",

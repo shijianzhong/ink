@@ -7,6 +7,7 @@ import BaseHead from '$/components/BaseHead.astro'
 import Prose from '$/components/Prose.astro'
 import PostStats from '$/components/PostStats.svelte'
 import EditUrl from '$/components/EditLink.astro'
+import ImageThreejs from '$/components/ImageThreejs.astro'
 
 
 interface Props {
@@ -32,6 +33,7 @@ const AUTHOR_AVATAR = content.authorImage ? content.authorImage : SITE?.authorIm
         <BaseHead {...content} title={ content.title ? `${ SITE.title } | ${content.title}` : SITE.title }/>
     </head>
     <MainLayout>
+     
         <div class="post__header">
             <div class="post__tags">
                 { content.tags.length > 0 && content.tags.map(tag => <a class="post__tag" href={`/tags/${tag}`} title={tag}>{tag}</a>) }
@@ -73,6 +75,7 @@ const AUTHOR_AVATAR = content.authorImage ? content.authorImage : SITE?.authorIm
                 <img class="img__outer" src={content.image} alt={content.title} /><br/>
                 : ""
         }
+           <!-- <ImageThreejs /> -->
         <Prose>
             <slot />
         </Prose>
