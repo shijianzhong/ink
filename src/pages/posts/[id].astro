@@ -1,10 +1,10 @@
 ---
 import { getEnv } from '../../lib/env'
 import voidFile from '../../assets/void.png'
-import List from '../../components/list.astro'
+import List from '../../components/share/list.astro'
 import { getChannelInfo } from '../../lib/telegram'
 
-const { SITE_URL } = Astro.locals
+const { SITE_URL } =import.meta.env// Astro.locals
 
 const channelInfo = await getChannelInfo(Astro)
 
