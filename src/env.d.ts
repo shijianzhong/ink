@@ -11,6 +11,6 @@ interface ImportMeta {
 	readonly env: ImportMetaEnv;
 }
 
-interface Locals {
-    SITE_URL: string,
-  }
+// interface Locals {
+//     SITE_URL: string,
+//   }
