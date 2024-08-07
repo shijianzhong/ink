@@ -3,7 +3,7 @@
 
 interface ImportMetaEnv {
 	readonly REDIS_URI: string;
-	readonly SITE_URI: string;
+	readonly SITE_URL: string;
 	// more env variables...
 }
 

@@ -5,9 +5,9 @@ import '../../assets/global.css'
 import { SEO } from 'astro-seo'
 import { getEnv } from '../../lib/env'
 
+const aa = import.meta.env
 const { SITE_URL } =import.meta.env// Astro.locals
 const { channel } = Astro.props
-
 const locale = getEnv(import.meta.env, Astro, 'LOCALE')
 
 const seo = channel?.seo
@@ -67,7 +67,7 @@ const FOOTER_INJECT = getEnv(import.meta.env, Astro, 'FOOTER_INJECT')
       }}
       {...seoParams}
     />
-    <Fragment set:html={HEADER_INJECT} />
+    <!-- <Fragment set:html={HEADER_INJECT} /> -->
   </head>
   <body>
     <div id="wrapper">
@@ -95,25 +95,7 @@ const FOOTER_INJECT = getEnv(import.meta.env, Astro, 'FOOTER_INJECT')
             <form class="search-form" action="/search/result" method="get">
               <input type="text" name="q" placeholder="Search" />
             </form>
-            <div class="copyright-wrap">
-              Powered by
-              <a
-                href="https://github.com/ccbikai/BroadcastChannel"
-                title="BroadcastChannel"
-                target="_blank"
-                rel="noopener"
-              >
-                BroadcastChannel
-              </a> &
-              <a
-                href="https://github.com/Planetable/SiteTemplateSepia"
-                title="Sepia"
-                target="_blank"
-                rel="noopener"
-              >
-                Sepia
-              </a>
-            </div>
+   
           </slot>
         </div>
       </div>

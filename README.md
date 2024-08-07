@@ -48,7 +48,7 @@ It's hugely inspired by [Hugo](https://github.com/knadh/hugo-ink)'s Ink theme an
 
 **Note: Before running `npm run dev` for the very first time -** 
 - create a `.env` file by running `mv .env.example .env` (if you're on a Linux distro or Mac)
-- set the `SITE_URI` variable as `SITE_URI=http://localhost:4321` (_where 4321 is the port at which your project is running_)
+- set the `SITE_URL` variable as `SITE_URL=http://localhost:4321` (_where 4321 is the port at which your project is running_)
 
 ## Built with Astro Ink
 - [jamesperkins.dev](https://www.jamesperkins.dev/) - Personal site of developer, YouTube instructor [James R Perkins](https://twitter.com/james_r_perkins)
