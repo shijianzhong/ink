@@ -11,6 +11,10 @@ const { channel } = Astro.props
 const locale = getEnv(import.meta.env, Astro, 'LOCALE')
 
 const seo = channel?.seo
+
+console.log("import.meta.env")
+console.log(aa)
+console.log("SITE_URL",SITE_URL)
 const canonical = SITE_URL.startsWith('http')
   ? new URL(SITE_URL).origin + Astro.url.pathname
   : Astro.url.origin + Astro.url.pathname
