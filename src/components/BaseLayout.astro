@@ -1011,7 +1011,6 @@ function renderScene() {
 
 /////
 function onResize(e) {
-    console.log('999999999999999')
     makeCanvasFullScreen(document.getElementById("sakura"));
     setViewports();
     if(sceneStandBy) {
@@ -1069,16 +1068,15 @@ function makeCanvasFullScreen(canvas) {
 	var d = document.documentElement;
 	fullw = Math.max(b.clientWidth , b.scrollWidth, d.scrollWidth, d.clientWidth);
 	fullh = Math.max(b.clientHeight , b.scrollHeight, d.scrollHeight, d.clientHeight);
-    console.log('666666666666666666')
-    console.log(canvas)
-    console.log(fullw)
-    console.log(fullh)
+    // console.log('666666666666666666')
+    // console.log(canvas)
+    // console.log(fullw)
+    // console.log(fullh)
 	canvas.width = fullw;
 	canvas.height = fullh;
 }
 
 window.addEventListener('load', function(e) {
-    console.log('yyyyytyttttttt')
     var canvas = document.getElementById("sakura");
     try {
         makeCanvasFullScreen(canvas);

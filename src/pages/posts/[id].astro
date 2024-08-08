@@ -20,6 +20,7 @@ const channel = {
 }
 
 const staticProxy = getEnv(import.meta.env, Astro, 'STATIC_PROXY') ?? '/static/'
+console.log(999888)
 console.log("staticProxy", staticProxy)
 export const prerender = false
 ---
