@@ -1,8 +1,13 @@
 ---
 export const prerender = true
-
+import '../assets/style.css'
+import voidFile from '../assets/void.png'
+import { getEnv } from '../lib/env'
 import DefaultPageLayout from '$/layouts/default.astro'
 import MediaPreviewList from '$/components/MediaPreviewList.astro'
+import Item from '$/components/share/item.astro'
+
+import { getChannelInfo } from '../lib/telegram'
 import { SITE } from '../config'
 import { DEFAULT_MEDIA_URL } from '../utils/media'
 import { toFeedToJsonUrl, toMediaFormatFromFeed2JsonUrl } from '../utils/media-yt-feed'
@@ -11,28 +16,58 @@ import { toFeedToJsonUrl, toMediaFormatFromFeed2JsonUrl } from '../utils/media-y
 
 /* The usual stuff...*/
 
-let title = 'Videos & Screencasts';
-let description = 'All the great videos on Astro we could find for ya!'
 
-const response = await fetch(
-    // an YT channelId is present?
-    SITE.ytChannelId ? toFeedToJsonUrl(SITE.ytChannelId) : 
-    // no?
-    DEFAULT_MEDIA_URL, 
-    // Default media URL is a Github content URL currently
-    DEFAULT_MEDIA_URL ? 
-        // and we need the below header if pulling raw content from Github. If you don't need it, remove the headers
-        {
-            headers: {
-                'Accept': 'application/vnd.github.v3.raw'
-            }
-        }: 
-        {}
-)
-const allPosts = await response.json()
 
-const sortedPosts = (SITE.ytChannelId ? toMediaFormatFromFeed2JsonUrl(allPosts) : allPosts).sort((a, b) => new Date(b.date) - new Date(a.date))
+// const response = await fetch(
+//     // an YT channelId is present?
+//     SITE.ytChannelId ? toFeedToJsonUrl(SITE.ytChannelId) : 
+//     // no?
+//     DEFAULT_MEDIA_URL, 
+//     // Default media URL is a Github content URL currently
+//     DEFAULT_MEDIA_URL ? 
+//         // and we need the below header if pulling raw content from Github. If you don't need it, remove the headers
+//         {
+//             headers: {
+//                 'Accept': 'application/vnd.github.v3.raw'
+//             }
+//         }: 
+//         {}
+// )
+// const allPosts = await response.json()
+
+// const sortedPosts = (SITE.ytChannelId ? toMediaFormatFromFeed2JsonUrl(allPosts) : allPosts).sort((a, b) => new Date(b.date) - new Date(a.date))
+
+
+//改造为telegram
+
+
+const { SITE_URL } =import.meta.env  //Astro.locals
+console.log(Astro)
+const channel = await getChannelInfo(Astro)
+// console.log("channel",channel)
+// const { channel, before = true, after = true } = Astro.props
+const posts = channel.posts ?? []
+const staticProxy = getEnv(import.meta.env, Astro, 'STATIC_PROXY') ?? '/static/'
+const title = channel?.title;
+const description = channel?.description
+// const beforeCursor = posts[posts.length - 1]?.id
+// const afterCursor = posts[0]?.id
+
 ---
 <DefaultPageLayout content={{ title, description }}>
-    <MediaPreviewList posts={sortedPosts} />
+    <!-- <MediaPreviewList posts={sortedPosts} /> -->
+    <a href={SITE_URL} title={channel?.title}>
+        <img
+          src={channel?.avatar?.startsWith('http')
+            ? staticProxy + channel?.avatar
+            : voidFile.src}
+          alt={channel?.title}
+          loading="eager"
+          class="header-avatar"
+        />
+      </a>
+
+    <div class="items">
+        {posts.map((post) => <Item post={post} />)}
+    </div>
 </DefaultPageLayout>
