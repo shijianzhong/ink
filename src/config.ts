@@ -9,10 +9,10 @@ export const NAV_ITEMS: NavItems = {
 		path: "/blog",
 		title: "博客",
 	},
-	share: {
-		path: "/share",
-		title: "说说",
-	},
+	// share: {
+	// 	path: "/share",
+	// 	title: "说说",
+	// },
 	tags: {
 		path: "/tags",
 		title: "标签",
