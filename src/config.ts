@@ -9,18 +9,18 @@ export const NAV_ITEMS: NavItems = {
 		path: "/blog",
 		title: "博客",
 	},
-	// share: {
-	// 	path: "/share",
-	// 	title: "说说",
-	// },
+	share: {
+		path: "/share",
+		title: "说说",
+	},
 	tags: {
 		path: "/tags",
 		title: "标签",
 	},
-	// media: {
-	// 	path: "/media",
-	// 	title: "媒体",
-	// },
+	media: {
+		path: "/media",
+		title: "媒体",
+	},
 	phtots: {
 		path: "/gallery",
 		title: "图册",
